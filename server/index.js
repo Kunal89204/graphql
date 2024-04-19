@@ -21,6 +21,7 @@ const startServer = async () => {
         id: ID!
         title: String!
         completed: Boolean
+        userId: ID!
       }
 
       type Query {
@@ -33,7 +34,7 @@ const startServer = async () => {
       Query: {
         getTodos: async () => (await axios.get('https://jsonplaceholder.typicode.com/todos')).data,
         getAllUsers: async () => (await axios.get('https://jsonplaceholder.typicode.com/users')).data,
-        getAllUsers: async (parent, {id}) => (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data
+        getUser: async (parent, {id}) => (await axios.get(`https://jsonplaceholder.typicode.com/users/${id}`)).data
       },
     },
   }); 
